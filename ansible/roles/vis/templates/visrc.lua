@@ -16,7 +16,7 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
     vis:command("set show-newlines")
     vis:command("set show-tabs")
 
-    if win.syntax == "ruby" then
+    if win.syntax == "ruby" or win.syntax == "javascript" then
         vis:command("set tabwidth 2")
     else
         vis:command("set tabwidth 4")
