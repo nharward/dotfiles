@@ -16,6 +16,8 @@ set -gx EDITOR vim
 set -gx VISUAL $EDITOR
 
 {% if ansible_system == 'Linux' %}
+set -gx _JAVA_AWT_WM_NONREPARENTING 1
+set -gx _JAVA_OPTIONS '-Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 set -gx BROWSER web
 #set -gx XKB_DEFAULT_MODEL kinesis
 set -gx XKB_DEFAULT_LAYOUT us,us
