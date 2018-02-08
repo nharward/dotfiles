@@ -12,7 +12,7 @@ end
 # Pager
 set -gx LESS '-FRX'
 set -gx PAGER less
-set -gx EDITOR vim
+set -gx EDITOR vis
 set -gx VISUAL $EDITOR
 
 {% if ansible_system == 'Linux' %}
@@ -27,12 +27,14 @@ set -gx XKB_DEFAULT_OPTIONS grp:menu_toggle,caps:ctrl_modifier
 # See https://wiki.archlinux.org/index.php/Wayland#GUI_libraries
 #set -gx GDK_BACKEND wayland
 #set -gx QT_QPA_PLATFORM wayland-egl
-set -gx CLUTTER_BACKEND wayland
-set -gx SDL_VIDEODRIVER wayland
+#set -gx CLUTTER_BACKEND wayland
+#set -gx SDL_VIDEODRIVER wayland
 
 # Android
-set -gx ANDROID_HOME /opt/android-studio
-set -gx ANDROID_EMULATOR_USE_SYSTEM_LIBS 1
+if test -d /opt/android-studio
+    set -gx ANDROID_HOME /opt/android-studio
+    set -gx ANDROID_EMULATOR_USE_SYSTEM_LIBS 1
+end
 {% endif -%}
 
 set -gx GOPATH $HOME/src/go
