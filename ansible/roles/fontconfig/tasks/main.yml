@@ -1,0 +1,16 @@
+---
+- name: Fontconfig user directory structure
+  when: ansible_system == "Linux"
+  file:
+    path: '{{ home }}/.config/fontconfig/conf.d'
+    state: directory
+    mode: 0700
+
+- name: Fontconfig rules
+  when: ansible_system == "Linux"
+  template:
+    src: '{{ item }}'
+    dest: '{{ home }}/.config/fontconfig/conf.d'
+    mode: 0400
+  with_items:
+    - 10-powerline-symbols.conf
