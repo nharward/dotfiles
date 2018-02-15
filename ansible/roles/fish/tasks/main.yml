@@ -1,10 +1,4 @@
 ---
-- name: Fish package
-  package:
-    name: fish
-    state: present
-  become: '{{ use_become }}'
-
 - name: Fish directory structure
   file:
     path: '{{ item }}'

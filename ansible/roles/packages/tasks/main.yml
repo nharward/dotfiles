@@ -1,0 +1,25 @@
+---
+- name: Install packages
+  package:
+    name: '{{ item }}'
+    state: present
+  become: '{{ use_become }}'
+  with_items:
+    - fish
+    - htop
+    - '{{ python3 }}'
+    - task
+    - tmux
+    - vis
+
+- name: Install Linux-only packages
+  when: ansible_system == "Linux"
+  package:
+    name: '{{ item }}'
+    state: present
+  become: '{{ use_become }}'
+  with_items:
+    - powerline
+    - i3-wm
+    - sway
+    - termite

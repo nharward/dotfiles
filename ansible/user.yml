@@ -5,14 +5,10 @@
     - group_by: key={{ ansible_system | lower }}
   roles:
     - prerequisites
-    - python3
     - powerline
     - fish
-    - termite
     - tmux
-    - sway
-    - i3
-    - i3status
+    - termite
     - inputrc
     - htop
     - vis
@@ -20,3 +16,6 @@
     - gitconfig
     - bin-scripts
     - fontconfig
+    - i3
+    - i3status
+    - sway

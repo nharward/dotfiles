@@ -1,10 +1,4 @@
 ---
-- name: Task package
-  package:
-    name: task
-    state: present
-  become: '{{ use_become  }}'
-
 - name: Task configuration
   template:
     src: taskrc.j2
