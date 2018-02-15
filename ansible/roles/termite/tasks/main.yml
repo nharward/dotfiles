@@ -1,11 +1,4 @@
 ---
-- name: Termite package
-  when: ansible_system == "Linux"
-  package:
-    name: termite
-    state: present
-  become: '{{ use_become }}'
-
 - name: Termite directory structure
   when: ansible_system == "Linux"
   file:

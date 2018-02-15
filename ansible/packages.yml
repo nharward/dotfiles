@@ -1,0 +1,7 @@
+---
+- name: Nat's Sensible Dot-file Setup (root)
+  hosts: all
+  pre_tasks:
+    - group_by: key={{ ansible_system | lower }}
+  roles:
+    - packages

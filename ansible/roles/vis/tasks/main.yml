@@ -1,11 +1,4 @@
 ---
-- name: Vis package
-  when: ansible_system == "Linux"
-  package:
-    name: vis
-    state: present
-  become: '{{ use_become }}'
-
 - name: vis directory structure
   when: ansible_system == "Linux"
   file:

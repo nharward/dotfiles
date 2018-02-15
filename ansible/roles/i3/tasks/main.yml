@@ -1,11 +1,4 @@
 ---
-- name: i3 package
-  when: ansible_system == "Linux"
-  package:
-    name: i3-wm
-    state: present
-  become: '{{ use_become }}'
-
 - name: i3 directory structure
   when: ansible_system == "Linux"
   file:

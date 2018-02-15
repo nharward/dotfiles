@@ -1,11 +1,4 @@
 ---
-- name: Sway package
-  when: ansible_system == "Linux"
-  package:
-    name: sway
-    state: present
-  become: '{{ use_become }}'
-
 - name: Sway directory structure
   when: ansible_system == "Linux"
   file:

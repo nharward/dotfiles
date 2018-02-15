@@ -1,10 +1,4 @@
 ---
-- name: Tmux package
-  package:
-    name: tmux
-    state: present
-  become: '{{ use_become  }}'
-
 - name: Tmux configuration
   template:
     src: tmux.conf.j2

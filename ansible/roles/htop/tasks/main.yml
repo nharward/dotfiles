@@ -1,10 +1,4 @@
 ---
-- name: htop package
-  package:
-    name: htop
-    state: present
-  become: '{{ use_become  }}'
-
 - name: htop directory structure
   file:
     path: '{{ item }}'
