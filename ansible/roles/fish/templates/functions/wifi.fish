@@ -1,7 +1,7 @@
 function wifi --description 'Manage wifi'
 
     function __wifi_wlan_dev
-        grep -v '|' /proc/net/wireless | cut -d: -f1 | head -1
+        iw dev | grep Interface | awk '{print $2}' | head -1
     end
 
     function __wifi_ipaddr
