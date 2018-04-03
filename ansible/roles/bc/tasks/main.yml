@@ -1,0 +1,6 @@
+---
+- name: bc configuration
+  template:
+    src: bcrc.j2
+    dest: '{{ home }}/.bcrc'
+    mode: 0400
