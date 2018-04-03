@@ -1,0 +1,29 @@
+---
+- name: $HOME xinitrc.d directory structure
+  when: ansible_system == "Linux"
+  file:
+    path: '{{ item }}'
+    state: directory
+    mode: 0700
+  with_items:
+    - '{{ home }}/.config/xinitrc.d'
+
+- name: $HOME X11 config
+  when: ansible_system == "Linux"
+  template:
+    src: '{{ item }}.j2'
+    dest: '{{ home }}/.{{ item }}'
+    mode: 0400
+  with_items:
+    - xbindkeysrc
+    - xinitrc
+    - Xmodmap
+
+- name: Ensure $HOME/.xinitrc is executable
+  when: ansible_system == "Linux"
+  file:
+    path: '{{ item }}'
+    state: file
+    mode: 0500
+  with_items:
+    - '{{ home }}/.xinitrc'

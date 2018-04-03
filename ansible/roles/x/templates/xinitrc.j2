@@ -1,0 +1,34 @@
+#! /bin/bash
+
+test -x /usr/local/bin/x-reload && /usr/local/bin/x-reload
+
+resources=("/etc/X11/xinit/.Xresources" "${HOME}/.Xresources")
+for resource in ${resources[@]}; do
+    test -f "${resouce}" && xrdb -merge "${resource}"
+done
+
+for xinitrcd in "/etc/X11/xinit/xinitrc.d" "${HOME}/.config/xinitrc.d"; do
+    if test -d "${xinitrcd}"; then
+        for file in "${xinitrcd}"/* ; do
+            test -x "${file}" && source "${file}"
+        done
+        unset file
+    fi
+done
+unset xinitrcd
+
+xbindkeys
+setxkbmap -layout "${XKB_DEFAULT_LAYOUT}" -variant "${XKB_DEFAULT_VARIANT}" -option "${XKB_DEFAULT_OPTIONS}"
+xset dpms $((60*10)) $((60*20)) $((60*30))
+xset s off
+
+if test -x /usr/bin/i3; then
+    # Low battery notification
+    (/usr/local/bin/wait-for-low-battery 10 && i3-nagbar -m 'Low battery' -f 'pango: Inconsolata 24') &
+    (/usr/local/bin/wait-for-low-battery 5 && i3-nagbar -m '*Really* low battery' -f 'pango: Inconsolata 24') &
+    redshift &
+    /usr/bin/i3
+    kill %1 %2 %3
+else
+    exec /usr/bin/dwm
+fi
