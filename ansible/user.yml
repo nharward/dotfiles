@@ -12,10 +12,12 @@
     - inputrc
     - htop
     - vis
+    - bc
     - task
     - gitconfig
     - bin-scripts
     - fontconfig
+    - x
     - i3
     - i3status
     - sway
