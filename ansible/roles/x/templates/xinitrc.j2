@@ -18,7 +18,7 @@ done
 unset xinitrcd
 
 xbindkeys
-setxkbmap -layout "${XKB_DEFAULT_LAYOUT}" -variant "${XKB_DEFAULT_VARIANT}" -option "${XKB_DEFAULT_OPTIONS}"
+setxkbmap -layout "${XKB_DEFAULT_LAYOUT:-us,us}" -variant "${XKB_DEFAULT_VARIANT:-,rus}" -option "${XKB_DEFAULT_OPTIONS:-grp:menu_toggle,caps:ctrl_modifier}"
 xset dpms $((60*10)) $((60*20)) $((60*30))
 xset s off
 
