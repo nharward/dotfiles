@@ -88,3 +88,10 @@ if test -d $POWERLINE_ROOT/bindings/fish
     set fish_function_path $fish_function_path $POWERLINE_ROOT/bindings/fish
     powerline-setup
 end
+
+# Start X at login
+if status is-login
+    if test -z "$DISPLAY" -a $XDG_VTNR = 1
+        startx -- -keeptty
+    end
+end
