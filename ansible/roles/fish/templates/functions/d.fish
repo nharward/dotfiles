@@ -1,4 +1,4 @@
 function d
     set -gx DISPLAY :0.0
-    is-laptop-closed; and set -gx GDK_SCALE 1
+    is-laptop-closed; and set -gx GDK_SCALE 1; or true
 end
