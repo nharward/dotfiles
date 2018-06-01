@@ -2,5 +2,5 @@
 ansible_pkg_mgr: pacman
 use_become: true
 python3: python
-font: FantasqueSansMono Nerd Font Mono 18
+font: FantasqueSansMono Nerd Font Mono 16
 dmenu_font: Glass TTY VT220:size=32
